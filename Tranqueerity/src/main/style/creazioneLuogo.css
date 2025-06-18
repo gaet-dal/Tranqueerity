@@ -1,0 +1,134 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: black;
+    height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.container {
+    border-radius: 24px;
+    background-color: #93B5CF;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px 15px 120px;
+    position: relative;
+}
+
+.title {
+    text-align: center;
+    font-size: 36px;
+    color: #0e2045;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px white;
+}
+
+.place-card {
+    background-color: #D9D9D9;
+    border-radius: 25px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-text {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.map-preview {
+    background-color: #333;
+    border-radius: 10px;
+    height: 120px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+}
+
+.map-icon {
+    font-size: 24px;
+}
+
+.address-label {
+    font-size: 14px;
+    color: #444;
+    margin-top: 4px;
+}
+
+.divider {
+    height: 1px;
+    background-color: #aaa;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.opinion-section h3 {
+    font-size: 16px;
+    color: #0e2045;
+    margin-bottom: 6px;
+}
+
+.user-name {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.stars {
+    display: flex;
+    gap: 5px;
+    font-size: 20px;
+    color: gray;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+textarea {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    resize: none;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f0f0;
+}
+
+.add {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 56px;
+    height: 56px;
+    background-color:#0e2045;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.add-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
