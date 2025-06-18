@@ -1,40 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Tranqueerity - Aggiunta luogo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tranqueerity - Nuovo luogo</title>
+  <link rel="stylesheet" href="style/creazioneLuogo.css">
 </head>
 <body>
-<header>Tranqueerity</header>
-  <div class="map">
-    <img src="./img/map.png" alt="Mappa">
-  </div>
+<div class="container">
+  <h1 class="title">Tranqueerity</h1>
 
-  <div class="add-form">
-    <form>
-      <label for="indirizzo">Indirizzo</label>
-      <input type = "text" id="indirizzo" name="indirizzo">
-    </form>
+  <div class="place-card">
+    <input class="input-text" type="text" placeholder="Nome del luogo">
 
-    <form>
-      <label for="1">1</label>
-      <input type="radio" id ="1">
-      <label for="2">2</label>
-      <input type="radio" id ="2">
-      <label for="3">3</label>
-      <input type="radio" id ="3">
-      <label for="4">4</label>
-      <input type="radio" id ="4">
-      <label for="5">5</label>
-      <input type="radio" id ="5">
-    </form>
+    <div class="map-preview">
+      <span class="map-icon">📍</span>
+    </div>
 
-    <div class="textarea">
-      <label for="opinione">Condividi la tua opinione</label>
-      <textarea id="opinione" style="display: block"></textarea>
+    <p class="address-label">Indirizzo:</p>
+    <input class="input-text" type="text" placeholder="Inserisci l'indirizzo">
+    <div class="divider"></div>
+
+    <div class="opinion-section">
+      <h3>Condividi la tua opinione</h3>
+      <p class="user-name">Lucia</p>
+      <div class="stars">
+        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+      </div>
+      <textarea placeholder="Scrivi qui..."></textarea>
     </div>
   </div>
 
-  <button>Add</button>
+  <div class="add">
+    <img src="img/Plus.png" alt="Aggiungi" class="add-icon">
+  </div>
+</div>
 </body>
 </html>
