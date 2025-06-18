@@ -15,7 +15,7 @@ function addRecensione() {
     // Aggiungi un profilo generico per il commento
     let profilo = document.createElement("div");
     profilo.classList.add("profile");
-    profilo.textContent = "Nuovo Utente";
+    profilo.textContent = "Lucia";
 
     // Aggiungi il commento
     let testoRecensione = document.createElement("div");
