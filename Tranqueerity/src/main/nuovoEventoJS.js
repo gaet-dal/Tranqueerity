@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+    //tasti per tornare indietro e per chiudere la finestra dopo conferma di creazione evento
     btnBack.addEventListener("click", () => {
         window.location.href = "recensioneLuogo.html";
     });

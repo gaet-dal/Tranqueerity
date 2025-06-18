@@ -26,7 +26,10 @@ function createCard(place) {
     img.src = place.image;
     img.alt = place.name;
     img.className = 'card-image';
-    
+    img.onclick = function(){
+        window.location.href = "recensioneLuogo.html";
+    }
+
     const cardInfo = document.createElement('div');
     cardInfo.className = 'card-info';
     
@@ -55,7 +58,7 @@ function createCard(place) {
 document.addEventListener('DOMContentLoaded', function() {
     const places = JSON.parse(localStorage.getItem('places')) || [];
     const cardList = document.querySelector('.card-list');
-    
+
     // Elimina eventuali card esistenti
     cardList.innerHTML = '';
     
