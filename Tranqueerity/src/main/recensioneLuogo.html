@@ -5,6 +5,7 @@
     <title>Tranqueerity - Recensisci Luogo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/recensioneStyle.css">
+    <script src="./scripts/recensioneLuogo.js"></script>
 </head>
 <body>
 <div class="container">
@@ -27,17 +28,21 @@
 
         <!-- Stelle -->
         <div class="rating-icons">
-            <div class="icon"><img src="img/star.png"></div>
-            <div class="icon"><img src="img/star.png"></div>
-            <div class="icon"><img src="img/star.png"></div>
-            <div class="icon"><img src="img/star.png"></div>
-            <div class="icon"><img src="img/star.png"></div>
+            <div class="icon" onclick="rating(1)"><img src="img/star.png"></div>
+            <div class="icon" onclick="rating(2)"><img src="img/star.png"></div>
+            <div class="icon" onclick="rating(3)"><img src="img/star.png"></div>
+            <div class="icon" onclick="rating(4)"><img src="img/star.png"></div>
+            <div class="icon" onclick="rating(5)"><img src="img/star.png"></div>
         </div>
 
         <!-- Commento principale -->
         <div class="review-section">
             <div class="username">Lucia</div>
-            <div class="comment">Luogo poco accogliente</div>
+            <div class="comment">
+                <label for="comment"></label>
+                <textarea id = "comment"></textarea>
+                <button onclick="addRecensione()" style="display: block">Aggiungi</button>
+            </div>
         </div>
 
         <!-- Tags -->
@@ -68,7 +73,9 @@
             <button class="icon-small"></button>
         </div>
 
-        <button class="circle-button"></button>
+        <button class="circle-button">
+            <img src="img/Plus.png">
+        </button>
     </div>
 </div>
 </body>

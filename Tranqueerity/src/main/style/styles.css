@@ -25,8 +25,9 @@ body {
     text-align: center;
     font-size: 36px;
     color: #0e2045;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 3px white;
 }
 
 .search-bar {
@@ -42,8 +43,8 @@ body {
 .search-icon {
     width: 25px;
     height: 25px;
-    border: 2px solid #A3A3A3;
-    border-radius: 50%;
+    /*border: 2px solid #A3A3A3;
+    border-radius: 50%;*/
 }
 
 .card-list {
@@ -93,35 +94,14 @@ body {
     );
 }
 
-.fab {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 86px;
-    height: 86px;
-    border-radius: 50%;
-    background: linear-gradient(180deg, #B076E3 25%, #E859D3 75%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.fab-icon {
-    width: 28px;
-    height: 28px;
-    border: 2px solid #D9D9D9;
-    border-radius: 50%;
-}
-
-.add-icon {
+.add {
     position: fixed;
     bottom: 32px;
     left: 50%;
     transform: translateX(-50%);
-    width: 86px;
-    height: 86px;
-    background: linear-gradient(180deg, #B076E3 25%, #E859D3 75%);
+    width: 56px;
+    height: 56px;
+    background-color: #0e2045;
     border-radius: 50%;
     display: flex;
     align-items: center;
