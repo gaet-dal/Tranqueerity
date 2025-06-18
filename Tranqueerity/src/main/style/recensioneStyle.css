@@ -1,0 +1,170 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Inter, sans-serif;
+    background: black;
+}
+
+.container {
+    /*padding: 0.5rem;*/
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    background-color: #93B5CF;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 470px;
+    padding: 1rem;
+    position: relative;
+}
+
+.img-container {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.location-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.location-address {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.rating-icons {
+    display: flex;
+    gap: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    /*border: 1px solid #000;*/
+}
+
+.review-section {
+    background: #FCFAFF;
+    border-radius: 9px;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.username {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.comment {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    color: #444;
+}
+
+.tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.tag {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.9rem;
+    color: #000;
+}
+
+.plus {
+    width: 1.5rem;
+    text-align: center;
+}
+
+.other-reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.review-item .profile {
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.review-item .review {
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.4);
+    margin-left: 1rem;
+}
+
+.icon-button {
+    width: 48px;
+    height: 48px;
+    background: #fff;
+    border-radius: 50%;
+    outline: 3px solid rgba(30, 30, 30, 0.75);
+    outline-offset: -2px;
+    border: none;
+}
+
+.icon-small {
+    width: 24px;
+    height: 24px;
+    background: #fff;
+    border-radius: 50%;
+    outline: 2.5px solid #D9D9D9;
+    outline-offset: -1.25px;
+    border: none;
+}
+
+.circle-button {
+    width: 86px;
+    height: 86px;
+    background-color: #0e2045;
+    border-radius: 50%;
+    margin: 1rem auto 0;
+    display: block;
+    border: none;
+}
+
+.buttons-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+}
+
+/* Tablet/Desktop */
+@media (min-width: 768px) {
+    .card {
+        margin-top: 2rem;
+    }
+}
