@@ -14,54 +14,43 @@
     <button onclick="window.location.href='index.html'" style="margin-bottom: 20px; padding: 10px; cursor: pointer;">Torna alla Home</button>
 
     <h1 class="title">Tranqueerity</h1>
-    <h1>Aggiungi un Nuovo Luogo</h1>
+    <!-- <h3>Aggiungi un Nuovo Luogo</h3>-->
 
     <div class="place-card">
 
-        <!-- Input di preview come nel secondo HTML -->
-        <input class="input-text" type="text" placeholder="Nome del luogo">
-
-        <!-- Mappa con icona -->
-        <div class="map-preview">
-            <span class="map-icon">📍</span>
-        </div>
-
-        <!-- Divider -->
-        <div class="divider"></div>
-
-        <!-- FORM ORIGINALE NON MODIFICATO -->
+        <!-- FORM ORIGINALE MODIFICATO -->
         <form id="addPlaceForm" style="display: flex; flex-direction: column; gap: 15px;">
             <div>
-                <label for="placeName">Nome del Luogo:</label>
-                <input type="text" id="placeName" name="placeName" required style="width: 100%; padding: 8px; box-sizing: border-box;">
+                <!--  <label for="placeAddress">Indirizzo:</label>-->
+                 <input type="text" id="placeAddress" name="placeAddress" placeholder="Indirizzo del luogo" class="input-text">
+             </div>
+            <div class="map-preview">
+                <span class="map-icon">📍</span>
             </div>
+            <div class="divider"></div>
             <div>
-                <label for="placeAddress">Indirizzo:</label>
-                <input type="text" id="placeAddress" name="placeAddress" class="address-label">
+                <label for="placeName">Nome del Luogo:</label>
+                <input type="text" id="placeName" name="placeName" class="input-text">
             </div>
             <div>
                 <label for="placeImage">URL Immagine:</label>
-                <input type="url" id="placeImage" name="placeImage" placeholder="https://example.com/image.jpg" required style="width: 100%; padding: 8px; box-sizing: border-box;">
+                <input type="url" id="placeImage" name="placeImage" placeholder="https://example.com/image.jpg" class="input-text">
             </div>
-            <button type="submit" style="padding: 10px 15px; cursor: pointer;">Aggiungi Luogo</button>
+            <div class="divider"></div>
+            <div class="opinion-section">
+                <h3>Condividi la tua opinione</h3>
+                <p class="user-name">Lucia</p>
+                <div class="stars">
+                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                </div>
+                <textarea placeholder="Scrivi qui..."></textarea>
+            </div>
+            <div class="add">
+                <button type="submit" class="add-icon"><img src="img/Plus.png" alt="Aggiungi" class="add-icon"></button>
+            </div>
         </form>
 
-        <!-- Sezione opinione come nel secondo HTML -->
-        <div class="opinion-section">
-            <h3>Condividi la tua opinione</h3>
-            <p class="user-name">Lucia</p>
-            <div class="stars">
-                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-            </div>
-            <textarea placeholder="Scrivi qui..."></textarea>
-        </div>
     </div>
-
-    <!-- Icona Aggiunta -->
-    <div class="add">
-        <img src="img/Plus.png" alt="Aggiungi" class="add-icon">
-    </div>
-
 </div>
 
 <script src="scripts/aggiuntaLuogo.js"></script>
