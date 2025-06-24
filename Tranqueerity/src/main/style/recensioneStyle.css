@@ -212,3 +212,17 @@ hr{
         margin-top: 2rem;
     }
 }
+
+#feedback-button{
+    position:inherit;
+    width: 60%;
+    height: 60%;
+}
+
+#event-button{
+    position:inherit;
+    width: 80%;
+    height: 80%;
+}
+
+
