@@ -11,7 +11,7 @@
 <div class="container">
     <div class="card">
         <!-- Top Icon -->
-        <button class="icon-button top-left">
+        <button class="icon-button top-left" onclick="window.location.href='index.html'" style="cursor:pointer">
             <img src="./img/Arrow%20left.png" alt="Back" class="icon-img">
         </button>
 
@@ -69,8 +69,12 @@
 
         <!-- Bottoni -->
         <div class="buttons-row">
-            <button class="icon-button"></button>
-            <button class="icon-small"></button>
+            <button class="icon-button">
+                <img src="img/feedback.png" alt="feedback" id="feedback-button">
+            </button>
+            <button class="icon-small" onclick="window.location.href='nuovoEvento.html'" style="cursor: pointer">
+                <img src="img/calendar.png" alt="event" id="event-button">
+            </button>
         </div>
 
         <button class="circle-button">
