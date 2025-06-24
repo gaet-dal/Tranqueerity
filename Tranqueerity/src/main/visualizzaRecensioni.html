@@ -109,5 +109,36 @@
         </button>
     </div>
 </div>
+<div id="custom-modal" class="modal hidden">
+    <div class="modal-content">
+        <p>Vuoi segnalare questa recensione?</p>
+        <button id="confirm-report">Si</button>
+        <button id="cancel-report">No</button>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("custom-modal");
+        const confirmBtn = document.getElementById("confirm-report");
+        const cancelBtn = document.getElementById("cancel-report");
+        let currentButton = null;
+
+        document.querySelectorAll('.report-button').forEach(button => {
+            button.addEventListener('click', function () {
+                currentButton = button;
+                modal.classList.remove('hidden');
+            });
+        });
+
+        confirmBtn.addEventListener('click', function () {
+            modal.classList.add('hidden');
+            alert("Recensione segnalata.");
+        });
+
+        cancelBtn.addEventListener('click', function () {
+            modal.classList.add('hidden');
+        });
+    });
+</script>
 </body>
 </html>
