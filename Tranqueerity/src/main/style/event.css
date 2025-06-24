@@ -107,3 +107,10 @@ textarea::placeholder {
     display: block;
     border: none;
 }
+
+.img-container {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+}
