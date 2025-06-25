@@ -4,32 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Crea Evento - Tranqueerity</title>
-  <link rel="stylesheet" href="style/styles.css" />
   <link rel="stylesheet" href="style/event.css" />
 </head>
 <body>
 <div class="container">
+  <button id=btnBack class="icon-button top-left">
+    <img src="./img/Arrow%20left.png" alt="Back" class="icon-img">
+  </button>
   <div class="img-container">
     <img class="image" src="https://placehold.co/430x228" alt="Luogo" />
   </div>
-  <div class="card">
+  <div class="card-event">
   <form id="event-form">
     <textarea id="nomeEvento" placeholder="Nome evento"></textarea>
     <textarea id="orarioEvento" placeholder="Orario"></textarea>
-    <textarea id="descrizioneEvento" placeholder="Descrizione"></textarea>
+    <textarea id="descrizioneEvento" placeholder="Descrizione" class="textarea-description"></textarea>
   </form>
 
-  <!-- Bottone di conferma (immagine) -->
-
+  <!-- Bottone di conferma (immagine)
   <div class="buttons-row">
-    <button id=btnBack class="icon-button top-left">
+    <button id=btnBack1 class="icon-button top-left">
       <img src="./img/Arrow%20left.png" alt="Back" class="icon-img">
     </button>
-    <!--ruotare la freccia-->
-    <button id="btnConferma" class="circle-button " >
-      <img src="./img/Arrow%20left.png" alt="Back" class="icon-img" style="transform: rotate(180deg)";>
-    </button>
-  </div>
+  </div>-->
 
   <!-- Messaggi -->
   <div id="conferma" style="display: none;">
@@ -45,6 +42,9 @@
     ⚠ Compila tutti i campi prima di confermare!
   </div>
 
+  </div>
+  <div class="circle">
+    <button type="submit" class="circle-icon"><img src="img/Arrow%20left.png" alt="Aggiungi" class="circle-icon"></button>
   </div>
 </div>
 
