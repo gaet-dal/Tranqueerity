@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ricerca luogo</title>
+  <link rel="stylesheet" href="style/posizioneStyle.css">
+</head>
+<body>
+    <div class="container">
+      <header class ="header">
+        <img src="img/logo.png" alt="logo" class="logo">
+        <h1 class="title">Tranqueerity</h1>
+      </header>
+
+      <div class="loader-wrapper">
+        <div class="loader"></div>
+      </div>
+
+      <br>
+      <br>
+      <br>
+      <p class="body-text">
+        Alla ricerca del tuo prossimo posto preferito...
+      </p>
+    </div>
+
+    <script>
+      setTimeout(redirect,3000);
+
+      function redirect(){
+        window.location.href="index.html";
+        console.log("Redirezione in corso")
+      }
+    </script>
+</body>
+</html>
