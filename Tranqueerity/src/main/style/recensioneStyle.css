@@ -178,7 +178,8 @@ hr{
 }
 
 .tag {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.15);
+    border: solid rgba(255, 255, 255, 0.45) 0.1px;
     border-radius: 20px;
     padding: 0.25rem 0.75rem;
     font-size: 0.9rem;
@@ -186,8 +187,14 @@ hr{
 }
 
 .plus {
-    width: 1.5rem;
+    width: 1.9rem;
     text-align: center;
+}
+
+.plus:hover {
+    transition: 0.3s;
+    cursor: pointer;
+    width: 2.5rem;
 }
 
 .other-reviews {
@@ -316,14 +323,14 @@ hr{
 }
 
 .glassmorphismEx{
-    background: rgba(255, 255, 255, 0.1); /* vetro semi-trasparente */
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     padding: 2rem;
-    backdrop-filter: blur(10px); /* effetto sfocato */
+    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px); /* supporto per Safari */
     border: 1px solid rgba(255, 255, 255, 0.3); /* bordo sottile semi-trasparente */
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* ombra leggera */
-    color: #000; /* testo leggibile */
+    color: #000;
 }
 
 .modal-content {
