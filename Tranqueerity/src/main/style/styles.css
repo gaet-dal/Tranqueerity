@@ -154,6 +154,7 @@ body {
     margin-left: 25%;
     max-height: 30px;
     max-width: 35px;
+    cursor: pointer;
 }
 
 .logo{
