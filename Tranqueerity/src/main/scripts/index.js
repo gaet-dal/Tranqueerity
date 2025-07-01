@@ -21,6 +21,16 @@ if (!localStorage.getItem('places')) {
                 { user: "User3", rating: 3, comment: "Carino, ma potrebbe migliorare." }
             ],
             tags: ["Economico"]
+        },
+        {
+            id: 3,
+            name: "Luogo 3",
+            address: "Via Giovanni Paolo III",
+            image: "https://placehold.co/296x144",
+            reviews: [
+                { user: "User3", rating: 3, comment: "Carino, ma potrebbe migliorare." }
+            ],
+            tags: ["Economico"]
         }
     ];
     localStorage.setItem('places', JSON.stringify(samplePlaces));

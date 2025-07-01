@@ -13,14 +13,14 @@ body {
 }
 
 .container {
-    width: 400px;
-    height: 870px;
+    height: 100vh;
+    aspect-ratio: 9/18;
     border-radius: 24px;
     background-color: #93B5CF;
-    max-width: 400px;
     margin: 0 auto;
     padding: 20px 10px 100px;
     position: relative;
+    overflow-y: scroll;
 }
 
 .title {
@@ -53,6 +53,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 25px;
+    overflow-y: scroll;
 }
 
 .card {
@@ -98,7 +99,7 @@ body {
 
 .add {
     position: fixed;
-    bottom: 32px;
+    bottom: 1.5em;
     left: 50%;
     transform: translateX(-50%);
     width: 56px;
