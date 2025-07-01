@@ -5,13 +5,22 @@ if (!localStorage.getItem('places')) {
             id: 1,
             name: "Luogo 1",
             address: "Via Giovanni Paolo II",
-            image: "https://placehold.co/296x143"
+            image: "https://placehold.co/296x143",
+            reviews: [
+                { user: "User1", rating: 5, comment: "Posto fantastico!" },
+                { user: "User2", rating: 4, comment: "Molto accogliente." }
+            ],
+            tags: ["Accogliente", "Amichevole"]
         },
         {
             id: 2,
             name: "Luogo 2",
             address: "Via Giovanni Paolo II",
-            image: "https://placehold.co/296x144"
+            image: "https://placehold.co/296x144",
+            reviews: [
+                { user: "User3", rating: 3, comment: "Carino, ma potrebbe migliorare." }
+            ],
+            tags: ["Economico"]
         }
     ];
     localStorage.setItem('places', JSON.stringify(samplePlaces));
@@ -21,14 +30,15 @@ if (!localStorage.getItem('places')) {
 function createCard(place) {
     const card = document.createElement('div');
     card.className = 'card';
+    card.addEventListener('click', () => {
+        localStorage.setItem('place', place.id);
+        window.location.href = "visualizzaRecensioni.html";
+    });
     
     const img = document.createElement('img');
     img.src = place.image;
     img.alt = place.name;
     img.className = 'card-image';
-    img.onclick = function(){
-        window.location.href = "recensioneLuogo.html";
-    }
 
     const cardInfo = document.createElement('div');
     cardInfo.className = 'card-info';

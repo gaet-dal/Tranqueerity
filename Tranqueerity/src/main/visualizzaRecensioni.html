@@ -5,139 +5,43 @@
     <title>Tranqueerity - Visualizza Recensioni</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/recensioneStyle.css">
-    <script src="./scripts/recensioneLuogo.js"></script>
-    <script src="./scripts/segnalazione.js"></script>
 </head>
 <body>
 <div class="container">
     <div class="card">
         <!-- Top Icon -->
-        <button class="icon-button top-left">
+        <button class="icon-button top-left" onclick="window.location.href='index.html'" style="cursor:pointer">
             <img src="./img/Arrow%20left.png" alt="Back" class="icon-img">
         </button>
 
         <!-- Immagine -->
         <div class="img-container">
-            <img class="image" src="https://placehold.co/430x228" alt="Luogo" />
+            <img class="image" src="" alt="Luogo" />
         </div>
 
         <!-- Titolo e Indirizzo -->
         <div class="location">
-            <h2 class="location-title">Luogo 1</h2>
-            <p class="location-address">Via Giovanni Paolo II</p>
+            <h2 class="location-title"></h2>
+            <p class="location-address"></p>
         </div>
 
         <!-- Stelle -->
         <div class="rating-icons">
-            <div class="icon" onclick="rating(1)"><img src="img/star.png"></div>
-            <div class="icon" onclick="rating(2)"><img src="img/star.png"></div>
-            <div class="icon" onclick="rating(3)"><img src="img/star.png"></div>
-            <div class="icon" onclick="rating(4)"><img src="img/star.png"></div>
-            <div class="icon" onclick="rating(5)"><img src="img/star.png"></div>
         </div>
 
         <!-- Tags -->
         <div class="tags">
-            <span class="tag">Accogliente</span>
-            <span class="tag">Ospitalita'</span>
         </div>
         <hr><br>
         <!-- Altri profili -->
         <div class="other-reviews">
-            <div class="review-item">
-                <div class="profile">Profilo 1</div>
-                <div class="review">Recensione 1
-                    <img src="img/AlertCircle.png" class="report-button" onclick="report()">
-                <div class="rating-review">
-                    <div class="r-icon" onclick="rating(1)"><img src="img/star.png"></div>
-                    <div class="r-icon" onclick="rating(2)"><img src="img/star.png"></div>
-                    <div class="r-icon" onclick="rating(3)"><img src="img/star.png"></div>
-                    <div class="r-icon" onclick="rating(4)"><img src="img/star.png"></div>
-                    <div class="r-icon" onclick="rating(5)"><img src="img/star.png"></div>
-                </div>
-                </div>
-            </div>
-            <div class="review-item">
-                <div class="profile">Profilo 2</div>
-                <div class="review">Recensione 2
-                    <img src="img/AlertCircle.png" class="report-button" onclick="report()">
-                    <div class="rating-review">
-                        <div class="r-icon" onclick="rating(1)"><img src="img/star.png"></div>
-                        <div class="r-icon" onclick="rating(2)"><img src="img/star.png"></div>
-                        <div class="r-icon" onclick="rating(3)"><img src="img/star.png"></div>
-                        <div class="r-icon" onclick="rating(4)"><img src="img/star.png"></div>
-                        <div class="r-icon" onclick="rating(5)"><img src="img/star.png"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="review-item">
-                <div class="profile">Profilo 3</div>
-                <div class="review">Recensione 3
-                    <img src="img/AlertCircle.png" class="report-button" onclick="report()">
-                    <div class="rating-review">
-                        <div class="r-icon" onclick="rating(1)"><img src="img/star.png"></div>
-                        <div class="r-icon" onclick="rating(2)"><img src="img/star.png"></div>
-                        <div class="r-icon" onclick="rating(3)"><img src="img/star.png"></div>
-                        <div class="r-icon" onclick="rating(4)"><img src="img/star.png"></div>
-                        <div class="r-icon" onclick="rating(5)"><img src="img/star.png"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="review-item">
-                <div class="profile">Profilo 4</div>
-                <div class="review">Recensione 4
-                    <img src="img/AlertCircle.png" class="report-button" onclick="report()">
-                    <div class="rating-review">
-                        <div class="r-icon" onclick="rating(1)"><img src="img/star.png"></div>
-                        <div class="r-icon" onclick="rating(2)"><img src="img/star.png"></div>
-                        <div class="r-icon" onclick="rating(3)"><img src="img/star.png"></div>
-                        <div class="r-icon" onclick="rating(4)"><img src="img/star.png"></div>
-                        <div class="r-icon" onclick="rating(5)"><img src="img/star.png"></div>
-                    </div>
-                </div>
-            </div>
         </div>
-
-        <!--<div class="buttons-row">
-            <button class="icon-button"></button>
-            <button class="icon-small"></button>
-        </div>-->
 
         <div class="circle">
             <button type="submit" class="circle-icon"><img src="img/Plus.png" alt="Aggiungi" class="circle-icon"></button>
         </div>
     </div>
 </div>
-<div id="custom-modal" class="modal hidden">
-    <div class="modal-content">
-        <p>Vuoi segnalare questa recensione?</p>
-        <button id="confirm-report">Si</button>
-        <button id="cancel-report">No</button>
-    </div>
-</div>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const modal = document.getElementById("custom-modal");
-        const confirmBtn = document.getElementById("confirm-report");
-        const cancelBtn = document.getElementById("cancel-report");
-        let currentButton = null;
-
-        document.querySelectorAll('.report-button').forEach(button => {
-            button.addEventListener('click', function () {
-                currentButton = button;
-                modal.classList.remove('hidden');
-            });
-        });
-
-        confirmBtn.addEventListener('click', function () {
-            modal.classList.add('hidden');
-            alert("Recensione segnalata.");
-        });
-
-        cancelBtn.addEventListener('click', function () {
-            modal.classList.add('hidden');
-        });
-    });
-</script>
+<script src="./scripts/visualizzaRecensioni.js"></script>
 </body>
 </html>
