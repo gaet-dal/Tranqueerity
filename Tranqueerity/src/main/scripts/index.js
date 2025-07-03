@@ -88,3 +88,42 @@ document.addEventListener('DOMContentLoaded', function() {
         cardList.appendChild(card);
     });
 });
+
+function locationOn() {
+    const modal = document.getElementById("custom-modal");
+    modal.classList.remove("hidden");
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("custom-modal");
+    const confirmBtn = document.getElementById("location-active");
+    const cancelBtn = document.getElementById("location-off");
+    let currentButton = null;
+
+    document.querySelectorAll('.search-locat').forEach(button => {
+        button.addEventListener('click', function () {
+            currentButton = button;
+            modal.classList.remove('hidden');
+        });
+    });
+
+    confirmBtn.addEventListener('click', function () {
+        modal.classList.add('hidden');
+        alert("Geolocalizzazione attivata");
+    });
+
+    cancelBtn.addEventListener('click', function () {
+        modal.classList.add('hidden');
+    });
+});
+
+const container = document.querySelector('.container');
+const logoContainer = document.querySelector('.logo-container');
+
+container.addEventListener('scroll', () => {
+    if (container.scrollTop > 0) {
+        logoContainer.classList.add('scrolled');
+    } else {
+        logoContainer.classList.remove('scrolled');
+    }
+});

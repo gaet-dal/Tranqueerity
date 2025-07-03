@@ -9,23 +9,25 @@
 <body>
 <div class="container">
     <header>
-        <h1 class="title">Tranqueerity</h1>
-        <img src="img/logo.png" alt="logo" class="logo">
-        <div class="search-bar">
-        <div class="search-icon">
-            <img src="img/Search.png" class="search-icon">
+        <div class="logo-container">
+            <a href="index.html"><img src="img/logo.png" alt="logo" class="logo"></a>
+            <a href="index.html"><h1 class="title">Tranqueerity</h1></a>
         </div>
-
-        <span class="search-text">
-            <label>
-                <input type="text" placeholder="Inserisci un nome di luogo" class =search-text>
-            </label>
-        </span>
-
-        <div class="search-locat">
-            <img src="img/location_on.png" class ="search-locat" onclick="locationOn()">
+        <div class="searchbar-container">
+            <div class="search-bar">
+                <div class="search-icon">
+                    <img src="img/Search.png" alt="Search Icon" class="search-icon">
+                </div>
+                <span class="search-text">
+                    <label>
+                        <input type="text" placeholder="Inserisci un nome di luogo" class="search-text">
+                    </label>
+                </span>
+            </div>
+            <div class="search-locat">
+                <img src="img/location_on.png" alt="Location Icon" class="search-locat" onclick="locationOn()">
+            </div>
         </div>
-    </div>
     </header>
     <div class="card-list">
         <!-- Cards will be dynamically created with JavaScript -->
@@ -75,36 +77,6 @@
         <button id="location-off">No</button>
     </div>
 </div>
-<script>
-    function locationOn() {
-        const modal = document.getElementById("custom-modal");
-        modal.classList.remove("hidden");
-    }
-</script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const modal = document.getElementById("custom-modal");
-        const confirmBtn = document.getElementById("location-active");
-        const cancelBtn = document.getElementById("location-off");
-        let currentButton = null;
-
-        document.querySelectorAll('.search-locat').forEach(button => {
-            button.addEventListener('click', function () {
-                currentButton = button;
-                modal.classList.remove('hidden');
-            });
-        });
-
-        confirmBtn.addEventListener('click', function () {
-            modal.classList.add('hidden');
-            alert("Geolocalizzazione attivata");
-        });
-
-        cancelBtn.addEventListener('click', function () {
-            modal.classList.add('hidden');
-        });
-    });
-</script>
 <script src="scripts/index.js"></script>
 </body>
 </html>
