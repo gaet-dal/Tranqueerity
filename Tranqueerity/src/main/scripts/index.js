@@ -5,7 +5,7 @@ if (!localStorage.getItem('places')) {
             id: 1,
             name: "Luogo 1",
             address: "Via Giovanni Paolo II",
-            image: "https://placehold.co/296x143",
+            image: "img/rosthouse.jpg",
             reviews: [
                 { user: "User1", rating: 5, comment: "Posto fantastico!" },
                 { user: "User2", rating: 4, comment: "Molto accogliente." }
@@ -16,7 +16,7 @@ if (!localStorage.getItem('places')) {
             id: 2,
             name: "Luogo 2",
             address: "Via Giovanni Paolo II",
-            image: "https://placehold.co/296x144",
+            image: "img/rosthouse.jpg",
             reviews: [
                 { user: "User3", rating: 3, comment: "Carino, ma potrebbe migliorare." }
             ],
@@ -26,7 +26,7 @@ if (!localStorage.getItem('places')) {
             id: 3,
             name: "Luogo 3",
             address: "Via Giovanni Paolo III",
-            image: "https://placehold.co/296x144",
+            image: "img/rosthouse.jpg",
             reviews: [
                 { user: "User3", rating: 3, comment: "Carino, ma potrebbe migliorare." }
             ],
@@ -92,6 +92,11 @@ document.addEventListener('DOMContentLoaded', function() {
 function locationOn() {
     const modal = document.getElementById("custom-modal");
     modal.classList.remove("hidden");
+
+    const button = document.getElementById("location-active");
+    button.addEventListener('click', function (){
+        window.location.href="dummyPosizione.html";
+    })
 }
 
 document.addEventListener("DOMContentLoaded", function () {
