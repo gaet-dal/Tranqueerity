@@ -83,10 +83,17 @@ document.addEventListener('DOMContentLoaded', function() {
     cardList.innerHTML = '';
     
     // Crea le nuove card
-    places.forEach(place => {
+    const placeToShow = parseInt(localStorage.getItem("placeToShow")); // può essere null
+
+    const filteredPlaces = isNaN(placeToShow)
+        ? places // se non è impostato, mostra tutti
+        : places.filter(place => place.id === placeToShow); // altrimenti, solo uno
+
+    filteredPlaces.forEach(place => {
         const card = createCard(place);
         cardList.appendChild(card);
     });
+
 });
 
 function locationOn() {
@@ -94,9 +101,10 @@ function locationOn() {
     modal.classList.remove("hidden");
 
     const button = document.getElementById("location-active");
-    button.addEventListener('click', function (){
-        window.location.href="dummyPosizione.html";
-    })
+    button.addEventListener('click', function () {
+        localStorage.setItem("placeToShow", 3); // mostriamo solamente il luogo con id 3;
+        window.location.href = "index.html"; //dopo ridirezioniamo alla homepage;
+    });
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -132,3 +140,8 @@ container.addEventListener('scroll', () => {
         logoContainer.classList.remove('scrolled');
     }
 });
+
+document.addEventListener('DOMContentLoaded', function(){
+    localStorage.removeItem("placeToShow");
+})
+
