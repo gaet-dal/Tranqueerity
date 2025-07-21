@@ -70,6 +70,10 @@ header a {
     overflow-y: scroll;
 }
 
+.container::-webkit-scrollbar {
+    display: none;
+}
+
 .searchbar-container {
     display: flex;
     justify-content: center;
@@ -122,7 +126,7 @@ header a {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    overflow-y: scroll;
+    overflow-y: visible;
 }
 
 .card {
