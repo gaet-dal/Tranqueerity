@@ -70,6 +70,10 @@ header a {
     overflow-y: scroll;
 }
 
+.container::-webkit-scrollbar {
+    display: none;
+}
+
 .searchbar-container {
     display: flex;
     justify-content: center;
@@ -127,7 +131,7 @@ header a {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    overflow-y: scroll;
+    overflow-y: visible;
 }
 
 .card {
@@ -257,4 +261,46 @@ header a {
 .modal-content button:hover {
     transition: 0.3s;
     font-size: 19px;
+}
+
+/*per la gestione della nuova recensione in visualizzaRecensioni.html*/
+#review-form {
+    opacity: 0;
+    transform: scale(0.75);
+    max-height: 0;
+    overflow: hidden;
+    transition:
+            opacity 0.7s ease,
+            transform 0.9s ease,
+            max-height 0.5s ease;
+}
+
+#review-form.fade-in {
+    opacity: 1;
+    transform: scale(1);
+    max-height: 1000px; /* un valore abbastanza grande da contenere tutto il contenuto */
+    overflow: visible;
+}
+
+.rating {
+    display: flex;
+    gap: 3px;
+    font-size: 30px;
+    cursor: pointer;
+    text-shadow: 1px 1px 1px black;
+    transition: 0.3s;
+}
+
+.rating:hover{
+    font-size: 35px;
+    transition: 0.3s;
+}
+
+.star {
+    color: #ccc;
+    transition: color 0.3s ease-in-out;
+}
+
+.star.filled {
+    color: gold;
 }
