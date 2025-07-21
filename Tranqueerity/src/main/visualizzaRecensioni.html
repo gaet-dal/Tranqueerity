@@ -32,12 +32,12 @@
 
         <div id="review-form">
             <!-- Stelle -->
-            <div class="rating-icons">
-                <div class="icon" onclick="rating(1)"><img src="img/star.png"></div>
-                <div class="icon" onclick="rating(2)"><img src="img/star.png"></div>
-                <div class="icon" onclick="rating(3)"><img src="img/star.png"></div>
-                <div class="icon" onclick="rating(4)"><img src="img/star.png"></div>
-                <div class="icon" onclick="rating(5)"><img src="img/star.png"></div>
+            <div class="rating" id="starRating">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
             </div>
             <!-- Commento principale -->
             <div class="review-section">
@@ -154,6 +154,32 @@
                 reviewForm.classList.add("fade-in");
             });
         });
+
+        const stars = document.querySelectorAll('#starRating .star');
+        let selected = 0;
+
+        stars.forEach((star, idx) => {
+            star.addEventListener('mouseover', () => {
+                highlightStars(idx + 1);
+            });
+
+            star.addEventListener('mouseout', () => {
+                highlightStars(selected);
+            });
+
+            star.addEventListener('click', () => {
+                selected = idx + 1;
+                highlightStars(selected);
+                console.log("Hai votato:", selected);
+            });
+        });
+
+        function highlightStars(rating) {
+            stars.forEach((star, idx) => {
+                star.classList.toggle('filled', idx < rating);
+            });
+        }
+
     </script>
 </body>
 </html>
