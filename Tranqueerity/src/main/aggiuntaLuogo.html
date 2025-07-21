@@ -6,12 +6,38 @@
     <title>Tranqueerity - Nuovo luogo</title>
     <link rel="stylesheet" href="style/styles.css">
     <link rel="stylesheet" href="style/creazioneLuogo.css">
+
+  <style>
+      .icon-button {
+          width: 48px;
+          height: 48px;
+          background: #fff;
+          border-radius: 50%;
+          outline: 3px solid rgba(30, 30, 30, 0.75);
+          outline-offset: -2px;
+          border: none;
+      }
+
+      .top-left {
+          position: absolute;
+          top: 60px;
+          left: 8px;
+      }
+  </style>
+
 </head>
 <body>
 <div class="container">
 
+
      <header>
-        <div class="logo-container">
+
+         <!-- Top Icon -->
+         <button class="icon-button top-left" onclick="window.location.href='index.html'" style="cursor:pointer">
+             <img src="./img/Arrow%20left.png" alt="Back" class="icon-img">
+         </button>
+
+         <div class="logo-container">
             <a href="index.html"><img src="img/logo.png" alt="logo" class="logo"></a>
             <a href="index.html"><h1 class="title">Tranqueerity</h1></a>
         </div>
