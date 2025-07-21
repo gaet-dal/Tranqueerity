@@ -127,6 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     cancelBtn.addEventListener('click', function () {
         modal.classList.add('hidden');
+        alert("⚠️ Senza geolocalizzazione non potrai vedere i luoghi vicini.");
     });
 });
 
