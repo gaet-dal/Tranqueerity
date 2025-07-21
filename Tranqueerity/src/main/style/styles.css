@@ -253,3 +253,22 @@ header a {
     transition: 0.3s;
     font-size: 19px;
 }
+
+/*per la gestione della nuova recensione in visualizzaRecensioni.html*/
+#review-form {
+    opacity: 0;
+    transform: scale(0.75);
+    max-height: 0;
+    overflow: hidden;
+    transition:
+            opacity 0.7s ease,
+            transform 0.9s ease,
+            max-height 0.5s ease;
+}
+
+#review-form.fade-in {
+    opacity: 1;
+    transform: scale(1);
+    max-height: 1000px; /* un valore abbastanza grande da contenere tutto il contenuto */
+    overflow: visible;
+}

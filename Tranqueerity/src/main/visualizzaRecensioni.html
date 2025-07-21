@@ -26,27 +26,33 @@
             <p class="location-address"></p>
         </div>
 
-        <!-- Stelle -->
-        <div class="rating-icons">
-            <div class="icon" onclick="rating(1)"><img src="img/star.png"></div>
-            <div class="icon" onclick="rating(2)"><img src="img/star.png"></div>
-            <div class="icon" onclick="rating(3)"><img src="img/star.png"></div>
-            <div class="icon" onclick="rating(4)"><img src="img/star.png"></div>
-            <div class="icon" onclick="rating(5)"><img src="img/star.png"></div>
+        <div class="review-section" id="review-header">
+            <h3 id="leave-review-title" style="cursor: pointer;">Lascia una recensione</h3>
         </div>
-        <!-- Commento principale -->
-        <div class="review-section">
-            <div class="username">Lucia</div>
-            <div class="comment">
-                <label for="comment"></label>
-                <textarea id = "comment" class="text-area"></textarea>
-                <button onclick="addRecensione()" class="button1">Conferma</button>
+
+        <div id="review-form">
+            <!-- Stelle -->
+            <div class="rating-icons">
+                <div class="icon" onclick="rating(1)"><img src="img/star.png"></div>
+                <div class="icon" onclick="rating(2)"><img src="img/star.png"></div>
+                <div class="icon" onclick="rating(3)"><img src="img/star.png"></div>
+                <div class="icon" onclick="rating(4)"><img src="img/star.png"></div>
+                <div class="icon" onclick="rating(5)"><img src="img/star.png"></div>
             </div>
-        </div>
-        <!-- Tags -->
-        <div class="tags">
-            <span class="tag">Aggiungi tag</span>
-            <span class="tag plus">+</span>
+            <!-- Commento principale -->
+            <div class="review-section">
+                <div class="username">Lucia</div>
+                <div class="comment">
+                    <label for="comment"></label>
+                    <textarea id = "comment" class="text-area"></textarea>
+                    <button onclick="addRecensione()" class="button1">Conferma</button>
+                </div>
+            </div>
+            <!-- Tags -->
+            <div class="tags">
+                <span class="tag">Aggiungi tag</span>
+                <span class="tag plus">+</span>
+            </div>
         </div>
         <hr><br>
         <!-- Altri profili -->
@@ -111,29 +117,43 @@
         <button id="cancel-report">No</button>
     </div>
 </div>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const modal = document.getElementById("custom-modal");
-        const confirmBtn = document.getElementById("confirm-report");
-        const cancelBtn = document.getElementById("cancel-report");
-        let currentButton = null;
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Gestione modale
+            const modal = document.getElementById("custom-modal");
+            const confirmBtn = document.getElementById("confirm-report");
+            const cancelBtn = document.getElementById("cancel-report");
 
-        document.querySelectorAll('.report-button').forEach(button => {
-            button.addEventListener('click', function () {
-                currentButton = button;
-                modal.classList.remove('hidden');
+            document.querySelectorAll('.report-button').forEach(button => {
+                button.addEventListener('click', function () {
+                    modal.classList.remove('hidden');
+                });
+            });
+
+            confirmBtn.addEventListener('click', function () {
+                modal.classList.add('hidden');
+                alert("Recensione segnalata.");
+            });
+
+            cancelBtn.addEventListener('click', function () {
+                modal.classList.add('hidden');
+            });
+
+            // MOSTRA IL FORM CON ANIMAZIONE
+            const reviewHeader = document.getElementById("review-header");
+            const reviewForm = document.getElementById("review-form");
+
+            reviewHeader.addEventListener("click", function () {
+                // Nasconde l'intestazione
+                reviewHeader.style.display = "none";
+
+                // Forza il reflow (necessario per animare)
+                void reviewForm.offsetWidth;
+
+                // Aggiunge la classe che attiva la transizione
+                reviewForm.classList.add("fade-in");
             });
         });
-
-        confirmBtn.addEventListener('click', function () {
-            modal.classList.add('hidden');
-            alert("Recensione segnalata.");
-        });
-
-        cancelBtn.addEventListener('click', function () {
-            modal.classList.add('hidden');
-        });
-    });
-</script>
+    </script>
 </body>
 </html>
