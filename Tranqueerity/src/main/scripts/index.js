@@ -5,13 +5,32 @@ if (!localStorage.getItem('places')) {
             id: 1,
             name: "Luogo 1",
             address: "Via Giovanni Paolo II",
-            image: "https://placehold.co/296x143"
+            image: "img/rosthouse.jpg",
+            reviews: [
+                { user: "User1", rating: 5, comment: "Posto fantastico!" },
+                { user: "User2", rating: 4, comment: "Molto accogliente." }
+            ],
+            tags: ["Accogliente", "Amichevole"]
         },
         {
             id: 2,
             name: "Luogo 2",
             address: "Via Giovanni Paolo II",
-            image: "https://placehold.co/296x144"
+            image: "img/rosthouse.jpg",
+            reviews: [
+                { user: "User3", rating: 3, comment: "Carino, ma potrebbe migliorare." }
+            ],
+            tags: ["Economico"]
+        },
+        {
+            id: 3,
+            name: "Luogo 3",
+            address: "Via Giovanni Paolo III",
+            image: "img/rosthouse.jpg",
+            reviews: [
+                { user: "User3", rating: 3, comment: "Carino, ma potrebbe migliorare." }
+            ],
+            tags: ["Economico"]
         }
     ];
     localStorage.setItem('places', JSON.stringify(samplePlaces));
@@ -21,14 +40,15 @@ if (!localStorage.getItem('places')) {
 function createCard(place) {
     const card = document.createElement('div');
     card.className = 'card';
+    card.addEventListener('click', () => {
+        localStorage.setItem('place', place.id);
+        window.location.href = "visualizzaRecensioni.html";
+    });
     
     const img = document.createElement('img');
     img.src = place.image;
     img.alt = place.name;
     img.className = 'card-image';
-    img.onclick = function(){
-        window.location.href = "recensioneLuogo.html";
-    }
 
     const cardInfo = document.createElement('div');
     cardInfo.className = 'card-info';
@@ -63,8 +83,65 @@ document.addEventListener('DOMContentLoaded', function() {
     cardList.innerHTML = '';
     
     // Crea le nuove card
-    places.forEach(place => {
+    const placeToShow = parseInt(localStorage.getItem("placeToShow")); // può essere null
+
+    const filteredPlaces = isNaN(placeToShow)
+        ? places // se non è impostato, mostra tutti
+        : places.filter(place => place.id === placeToShow); // altrimenti, solo uno
+
+    filteredPlaces.forEach(place => {
         const card = createCard(place);
         cardList.appendChild(card);
     });
+
 });
+
+function locationOn() {
+    const modal = document.getElementById("custom-modal");
+    modal.classList.remove("hidden");
+
+    const button = document.getElementById("location-active");
+    button.addEventListener('click', function () {
+        localStorage.setItem("placeToShow", 3); // mostriamo solamente il luogo con id 3;
+        window.location.href = "index.html"; //dopo ridirezioniamo alla homepage;
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("custom-modal");
+    const confirmBtn = document.getElementById("location-active");
+    const cancelBtn = document.getElementById("location-off");
+    let currentButton = null;
+
+    document.querySelectorAll('.search-locat').forEach(button => {
+        button.addEventListener('click', function () {
+            currentButton = button;
+            modal.classList.remove('hidden');
+        });
+    });
+
+    confirmBtn.addEventListener('click', function () {
+        modal.classList.add('hidden');
+        alert("Geolocalizzazione attivata");
+    });
+
+    cancelBtn.addEventListener('click', function () {
+        modal.classList.add('hidden');
+    });
+});
+
+const container = document.querySelector('.container');
+const logoContainer = document.querySelector('.logo-container');
+
+container.addEventListener('scroll', () => {
+    if (container.scrollTop > 0) {
+        logoContainer.classList.add('scrolled');
+    } else {
+        logoContainer.classList.remove('scrolled');
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function(){
+    localStorage.removeItem("placeToShow");
+})
+
