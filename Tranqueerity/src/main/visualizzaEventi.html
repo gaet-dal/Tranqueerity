@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tranqueerity</title>
+    <link rel="stylesheet" href="style/styles.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="logo-container">
+            <a href="index.html"><img src="img/logo.png" alt="logo" class="logo"></a>
+            <a href="index.html"><h1 class="title">Tranqueerity</h1></a>
+        </div>
+        <div class="searchbar-container">
+            <div class="search-bar">
+                <div class="search-icon">
+                    <button id="search-btn" type="submit" onclick="searchPlace()">
+                        <img src="img/Search.png" alt="Search Icon" class="search-icon">
+                    </button>
+                </div>
+                <span class="search-text">
+                    <label>
+                        <input type="text" placeholder="Inserisci un nome di luogo" class="search-text">
+                    </label>
+                </span>
+            </div>
+            <div class="search-locat">
+                <img src="img/location_on.png" alt="Location Icon" class="search-locat" onclick="locationOn()">
+            </div>
+        </div>
+    </header>
+    <div class="card-list">
+        <!-- Cards will be dynamically created with JavaScript -->
+        <!--
+        <div class="card">
+            <img src="https://placehold.co/296x143" alt="Luogo 1" class="card-image">
+            <div class="card-info">
+                <h2 class="card-title">Luogo 1</h2>
+                <p class="card-address">Via Giovanni Paolo II</p>
+            </div>
+            <div class="card-icons"></div>
+        </div>
+
+        <div class="card">
+            <img src="https://placehold.co/296x144" alt="Luogo 2" class="card-image">
+            <div class="card-info">
+                <h2 class="card-title">Luogo 2</h2>
+                <p class="card-address">Via Giovanni Paolo II</p>
+            </div>
+            <div class="card-icons"></div>
+        </div>
+
+        <div class="card">
+            <img src="https://placehold.co/296x143" alt="Luogo 3" class="card-image">
+            <div class="card-info">
+                <h2 class="card-title">Luogo 3</h2>
+                <p class="card-address">Via Giovanni Paolo II</p>
+            </div>
+            <div class="card-icons"></div>
+        </div>
+        -->
+    </div>
+
+    <!--<div class="fab">
+        <div class="fab-icon"></div>
+    </div>-->
+    <div class="add" onclick="window.location.href='aggiuntaLuogo.html'" style="cursor: pointer;">
+        <img src="img/Plus.png" alt="Aggiungi" class="add-icon">
+    </div>
+</div>
+<div id="custom-modal" class="modal hidden">
+    <div class="modal-content">
+        <p>Per usare questa funzione bisogna attivare la geolocalizzazione.
+            <br>
+            Procedere?</p>
+        <button value="true" id="location-active">Si</button>
+        <button id="location-off">No</button>
+    </div>
+</div>
+<script src="scripts/visualizzaEventi.js"></script>
+<script src="scripts/searchFunction.js"></script>
+</body>
+</html>

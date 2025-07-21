@@ -36,6 +36,9 @@ if (!localStorage.getItem('places')) {
     localStorage.setItem('places', JSON.stringify(samplePlaces));
 }
 
+let events = [];
+localStorage.setItem("events", JSON.stringify(events));
+
 // Funzione per la creazione di una card dinamica
 function createCard(place) {
     const card = document.createElement('div');
