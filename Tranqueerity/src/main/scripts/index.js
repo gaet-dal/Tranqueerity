@@ -106,7 +106,7 @@ function locationOn() {
     const button = document.getElementById("location-active");
     button.addEventListener('click', function () {
         localStorage.setItem("placeToShow", 3); // mostriamo solamente il luogo con id 3;
-        window.location.href = "index.html"; //dopo ridirezioniamo alla homepage;
+        window.location.href = "dummyPosizione.html"; //ridirezioniamo alla pagina di caricamento;
     });
 }
 
