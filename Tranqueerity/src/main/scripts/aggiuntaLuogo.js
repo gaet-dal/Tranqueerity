@@ -2,7 +2,16 @@ function addPlace(){
     // Get form values
     const placeName = document.getElementById('placeName').value;
     const placeAddress = document.getElementById('placeAddress').value;
-    const placeImage = document.getElementById('placeImage').value;
+    let placeImage = document.getElementById('placeImage').value;
+
+    const regex = /^(?![^?]*\.(jpg|jpeg|png|gif|bmp|webp|tiff|svg)$).+/i;
+
+    if (placeImage ===''){
+        placeImage = 'img/rosthouse.jpg';
+    } else if (!regex.test(placeImage)){
+        alert("Devi inserire un link che non finisca con le estensioni di un file immagine!");
+        return;
+    }
 
     if(placeName === '' || placeAddress === '') {
         alert("Campi mancanti");
