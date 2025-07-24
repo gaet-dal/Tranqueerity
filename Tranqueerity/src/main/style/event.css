@@ -208,37 +208,83 @@ textarea:hover{
     margin-bottom: 1rem;
 }
 
-/* Nome dell'evento */
-.eventTitle
-{
-    font-size: 1.25rem; /* Titolo grande */
-    font-weight: 600;
-    margin: 0;
-    color: #333;
+/* Applica layout a due colonne fisse e reattive */
+.card-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 6px;
 }
 
-/* orario dell'evento*/
-.OrarioEvento {
-    font-size: 1.25rem; /* Titolo grande */
-    font-weight: 600;
-    margin: 0;
-    color: #333;
-    justify-content: flex-end;
-    text-align: right;
+.card-row:nth-child(2) {
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.card-row:nth-child(2) > .cardDescription {
+    align-self: flex-start;
+}
+
+.card-row:nth-child(2) > .LuogoEvento {
+    display: block;
+}
+
+.card-row:nth-child(1) > .OrarioEvento {
+    display: block;
+    margin-bottom: 4px;
 }
 
 
-/* Descrizione */
+/* Colonna sinistra (titolo sopra, descrizione sotto) */
+.eventTitle,
 .cardDescription {
-    font-size: 1rem;
-    color: #555;
-    margin: 6px 0;
+    flex: 0 1 65%;
+    max-width: 65%; /* impedisce alla descrizione di superare un certo asse verticale */
+    word-break: break-word;
+}
+
+/* Colonna destra (orario sopra, luogo sotto) */
+.OrarioEvento,
+.LuogoEvento {
+    flex: 0 0 35%;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    align-items: center;
+}
+
+
+.cardDescription {
+    font-size: 14px;
+    color: #6c6c6c; /* grigio medio-chiaro */
+    margin-top: 4px;
+}
+
+.LuogoEvento {
+    font-size: 14px;
+    color: #6c6c6c; /* grigio medio-chiaro */
+    margin-top: 4px;
+}
+
+.OrarioEvento {
+    font-size: 16px;
+    font-weight: bold;
+    color: #202020;
+}
+
+.eventTitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #202020;
+}
+
+.card-description {
+    font-size: 14px;
+    color: #444;
+    margin-top: 6px;
     line-height: 1.4;
 }
 
-/* Luogo */
-.LuogoEvento {
-    font-size: 0.95rem;
-    color: #888;
-    margin-bottom: 6px;
-}
+
