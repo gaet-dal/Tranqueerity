@@ -26,9 +26,18 @@
                     </label>
                 </span>
             </div>
+
+            <!-- Icona eventi (inizialmente nascosta) -->
+            <!--La ridirezione avviene nel listner-->
+            <div class="icon-column">
+            <div id="eventButton" class="event-button">
+                <img src="img/calendar.png" alt="Eventi" class="event-icon">
+            </div>
+
             <div class="search-locat">
                 <img src="img/location_on.png" alt="Location Icon" class="search-locat" onclick="locationOn()">
             </div>
+        </div>
         </div>
     </header>
     <div class="card-list">
@@ -69,6 +78,7 @@
     <div class="add" onclick="window.location.href='aggiuntaLuogo.html'" style="cursor: pointer;">
         <img src="img/Plus.png" alt="Aggiungi" class="add-icon">
     </div>
+
 </div>
 <div id="custom-modal" class="modal hidden">
     <div class="modal-content">

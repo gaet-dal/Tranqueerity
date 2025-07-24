@@ -69,7 +69,7 @@ function createCard(place) {
     address.className = 'card-address';
     address.textContent = place.address;
 
-    console.log("Reviws count: ", place.reviews.length)
+    console.log("Reviws count: ", place.reviews.length);
     let rating = 0;
     for (let r = 0; r<place.reviews.length; r++) {
         console.log("Vote: ", place.reviews[r].rating)
@@ -172,4 +172,23 @@ container.addEventListener('scroll', () => {
 document.addEventListener('DOMContentLoaded', function(){
     localStorage.removeItem("placeToShow");
 })
+
+document.addEventListener("DOMContentLoaded", function () {
+    const eventButton = document.getElementById("eventButton"); //tasto per la visualizzazione degli eventi;
+
+    //il tasto diventa visibile dopo aver scorso un po' la home page
+    const scrollableContainer = document.querySelector('.container');
+
+    scrollableContainer.addEventListener("scroll", function () {
+        if (scrollableContainer.scrollTop > 100) {
+            eventButton.classList.add("visible");
+        } else {
+            eventButton.classList.remove("visible");
+        }
+    });
+
+    eventButton.addEventListener("click", function () {
+        window.location.href = "visualizzaEventi.html";
+    });
+});
 
