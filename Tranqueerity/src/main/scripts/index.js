@@ -68,16 +68,35 @@ function createCard(place) {
     const address = document.createElement('p');
     address.className = 'card-address';
     address.textContent = place.address;
+
+    console.log("Reviws count: ", place.reviews.length)
+    let rating = 0;
+    for (let r = 0; r<place.reviews.length; r++) {
+        console.log("Vote: ", place.reviews[r].rating)
+        rating += place.reviews[r].rating;
+    }
+    rating = Math.round(rating/place.reviews.length);
+    console.log("Final rating: ", rating)
     
-    const icons = document.createElement('div');
-    icons.className = 'card-icons';
+    const stars = document.createElement('div');
+    stars.className = 'rating-vertical';
+    for (let i = 0; i<5; i++) {
+        let star = document.createElement("span");
+        star.classList.add("star");
+        star.textContent="★";
+        star.value = i+1;
+        if (i <= rating) {
+            star.classList.add("filled");
+        }
+        stars.appendChild(star);
+    }
     
     cardInfo.appendChild(title);
     cardInfo.appendChild(address);
     
     card.appendChild(img);
     card.appendChild(cardInfo);
-    card.appendChild(icons);
+    card.appendChild(stars);
     
     return card;
 }
