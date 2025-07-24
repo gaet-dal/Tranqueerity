@@ -67,18 +67,51 @@
             <div class="opinion-section">
                 <h3>Condividi la tua opinione</h3>
                 <p class="user-name">Lucia</p>
-                <div class="stars">
-                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                <div class="rating" id="starRating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
                 </div>
                 <textarea placeholder="Scrivi qui..."></textarea>
             </div>
         </form>
     </div>
     <div class="add">
-        <button type="submit" class="add-icon"><img src="img/Plus.png" alt="Aggiungi" class="add-icon"></button>
+        <button type="submit" onclick="addPlace()" class="add-icon"><img src="img/Plus.png" alt="Aggiungi" class="add-icon"></button>
     </div>
 </div>
 
 <script src="scripts/aggiuntaLuogo.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const stars = document.querySelectorAll('#starRating .star');
+        let selected = 0;
+
+        stars.forEach((star, idx) => {
+            star.addEventListener('mouseover', () => {
+                highlightStars(idx + 1);
+            });
+
+            star.addEventListener('mouseout', () => {
+                highlightStars(selected);
+            });
+
+            star.addEventListener('click', () => {
+                selected = idx + 1;
+                highlightStars(selected);
+                console.log("Hai votato:", selected);
+            });
+        });
+
+        function highlightStars(rating) {
+            stars.forEach((star, idx) => {
+                star.classList.toggle('filled', idx < rating);
+            });
+        }
+    });
+</script>
 </body>
 </html>

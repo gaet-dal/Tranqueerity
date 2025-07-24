@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/styles.css">
     <link rel="stylesheet" href="style/recensioneStyle.css">
+    <script src="scripts/recensioneLuogo.js"></script>
 </head>
 <body>
-<div class="container">
+
     <div class="card">
         <!-- Top Icon -->
         <button class="icon-button top-left" onclick="window.location.href='index.html'" style="cursor:pointer">
@@ -17,7 +18,7 @@
 
         <!-- Immagine -->
         <div class="img-container">
-            <img class="image" src="" alt="Luogo" />
+            <img class="image" src="https://placehold.co/430x228" alt="Luogo" />
         </div>
 
         <!-- Titolo e Indirizzo -->
@@ -26,25 +27,160 @@
             <p class="location-address"></p>
         </div>
 
-        <!-- Stelle -->
-        <div class="rating-icons">
+        <div class="review-section" id="review-header">
+            <h3 id="leave-review-title" style="cursor: pointer;">Lascia una recensione</h3>
         </div>
 
-        <!-- Tags -->
-        <div class="tags">
+        <div id="review-form">
+            <!-- Stelle -->
+            <div class="rating" id="starRating">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+            </div>
+            <!-- Commento principale -->
+            <div class="review-section">
+                <div class="username">Lucia</div>
+                <div class="comment">
+                    <label for="comment"></label>
+                    <textarea id = "comment" class="text-area"></textarea>
+                    <button onclick="addRecensione()" class="button1">Conferma</button>
+                </div>
+            </div>
+            <!-- Tags -->
+            <div class="tags">
+                <span class="tag">Aggiungi tag</span>
+                <span class="tag plus">+</span>
+            </div>
         </div>
         <hr><br>
         <!-- Altri profili -->
         <div class="other-reviews">
+            <div class="review-item">
+                <div class="profile">Profilo 1</div>
+                <div class="review">Recensione 1
+                    <img src="img/AlertCircle.png" class="report-button" onclick="report()">
+                    <div class="rating-review">
+                        <div class="r-icon" onclick="rating(1)"><img src="img/star.png"></div>
+                        <div class="r-icon" onclick="rating(2)"><img src="img/star.png"></div>
+                        <div class="r-icon" onclick="rating(3)"><img src="img/star.png"></div>
+                        <div class="r-icon" onclick="rating(4)"><img src="img/star.png"></div>
+                        <div class="r-icon" onclick="rating(5)"><img src="img/star.png"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="review-item">
+                <div class="profile">Profilo 2</div>
+                <div class="review">Recensione 2
+                    <img src="img/AlertCircle.png" class="report-button" onclick="report()">
+                    <div class="rating-review">
+                        <div class="r-icon" onclick="rating(1)"><img src="img/star.png"></div>
+                        <div class="r-icon" onclick="rating(2)"><img src="img/star.png"></div>
+                        <div class="r-icon" onclick="rating(3)"><img src="img/star.png"></div>
+                        <div class="r-icon" onclick="rating(4)"><img src="img/star.png"></div>
+                        <div class="r-icon" onclick="rating(5)"><img src="img/star.png"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="review-item">
+                <div class="profile">Profilo 3</div>
+                <div class="review">Recensione 3
+                    <img src="img/AlertCircle.png" class="report-button" onclick="report()">
+                    <div class="rating-review">
+                        <div class="r-icon" onclick="rating(1)"><img src="img/star.png"></div>
+                        <div class="r-icon" onclick="rating(2)"><img src="img/star.png"></div>
+                        <div class="r-icon" onclick="rating(3)"><img src="img/star.png"></div>
+                        <div class="r-icon" onclick="rating(4)"><img src="img/star.png"></div>
+                        <div class="r-icon" onclick="rating(5)"><img src="img/star.png"></div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <!--<div class="buttons-row">
+            <button class="icon-button"></button>
+            <button class="icon-small"></button>
+        </div>-->
 
         <div class="circle">
             <a href="nuovoEvento.html">
-            <button type="submit" class="circle-icon"><img src="img/Plus.png" alt="Aggiungi" class="circle-icon"></button>
+                <button type="submit" class="circle-icon"><img src="img/Plus.png" alt="Aggiungi" class="circle-icon"></button>
             </a>
         </div>
     </div>
+
+<div id="custom-modal" class="modal hidden">
+    <div class="modal-content">
+        <p>Vuoi segnalare questa recensione?</p>
+        <button id="confirm-report">Si</button>
+        <button id="cancel-report">No</button>
+    </div>
 </div>
-<script src="./scripts/visualizzaRecensioni.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Gestione modale
+            const modal = document.getElementById("custom-modal");
+            const confirmBtn = document.getElementById("confirm-report");
+            const cancelBtn = document.getElementById("cancel-report");
+
+            document.querySelectorAll('.report-button').forEach(button => {
+                button.addEventListener('click', function () {
+                    modal.classList.remove('hidden');
+                });
+            });
+
+            confirmBtn.addEventListener('click', function () {
+                modal.classList.add('hidden');
+                alert("Recensione segnalata.");
+            });
+
+            cancelBtn.addEventListener('click', function () {
+                modal.classList.add('hidden');
+            });
+
+            // MOSTRA IL FORM CON ANIMAZIONE
+            const reviewHeader = document.getElementById("review-header");
+            const reviewForm = document.getElementById("review-form");
+
+            reviewHeader.addEventListener("click", function () {
+                // Nasconde l'intestazione
+                reviewHeader.style.display = "none";
+
+                // Forza il reflow (necessario per animare)
+                void reviewForm.offsetWidth;
+
+                // Aggiunge la classe che attiva la transizione
+                reviewForm.classList.add("fade-in");
+            });
+        });
+
+        const stars = document.querySelectorAll('#starRating .star');
+        let selected = 0;
+
+        stars.forEach((star, idx) => {
+            star.addEventListener('mouseover', () => {
+                highlightStars(idx + 1);
+            });
+
+            star.addEventListener('mouseout', () => {
+                highlightStars(selected);
+            });
+
+            star.addEventListener('click', () => {
+                selected = idx + 1;
+                highlightStars(selected);
+                console.log("Hai votato:", selected);
+            });
+        });
+
+        function highlightStars(rating) {
+            stars.forEach((star, idx) => {
+                star.classList.toggle('filled', idx < rating);
+            });
+        }
+
+    </script>
 </body>
 </html>

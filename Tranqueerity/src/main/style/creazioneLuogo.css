@@ -100,6 +100,10 @@ body {
     margin-bottom: 6px;
 }
 
+.opinion-section textarea {
+    min-height: 130px;
+}
+
 .user-name {
     font-weight: bold;
     color: #555;

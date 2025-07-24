@@ -1,33 +1,41 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('addPlaceForm');
+function addPlace(){
+    // Get form values
+    const placeName = document.getElementById('placeName').value;
+    const placeAddress = document.getElementById('placeAddress').value;
+    let placeImage = document.getElementById('placeImage').value;
 
-    form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
+    const regex = /^(?![^?]*\.(jpg|jpeg|png|gif|bmp|webp|tiff|svg)$).+/i;
 
-        // Get form values
-        const placeName = document.getElementById('placeName').value;
-        const placeAddress = document.getElementById('placeAddress').value;
-        const placeImage = document.getElementById('placeImage').value;
+    if (placeImage ===''){
+        placeImage = 'img/rosthouse.jpg';
+    } else if (!regex.test(placeImage)){
+        alert("Devi inserire un link che non finisca con le estensioni di un file immagine!");
+        return;
+    }
 
-        // Retrieve existing places from localStorage or initialize an empty array
-        let places = JSON.parse(localStorage.getItem('places')) || [];
+    if(placeName === '' || placeAddress === '') {
+        alert("Campi mancanti");
+        return;
+    }
 
-        // Create a new place object
-        const newPlace = {
-            id: places.length > 0 ? Math.max(...places.map(p => p.id)) + 1 : 1, // Generate a new ID
-            name: placeName,
-            address: placeAddress,
-            image: placeImage
-        };
+    // Retrieve existing places from localStorage or initialize an empty array
+    let places = JSON.parse(localStorage.getItem('places')) || [];
 
-        // Add the new place to the array
-        places.push(newPlace);
+    // Create a new place object
+    const newPlace = {
+        id: places.length > 0 ? Math.max(...places.map(p => p.id)) + 1 : 1, // Generate a new ID
+        name: placeName,
+        address: placeAddress,
+        image: placeImage
+    };
 
-        // Save the updated array back to localStorage
-        localStorage.setItem('places', JSON.stringify(places));
+    // Add the new place to the array
+    places.push(newPlace);
 
-        // Alert the user and redirect to the homepage
-        alert('Luogo aggiunto con successo!');
-        window.location.href = 'index.html'; // Redirect to homepage
-    });
-});
+    // Save the updated array back to localStorage
+    localStorage.setItem('places', JSON.stringify(places));
+
+    // Alert the user and redirect to the homepage
+    alert('Luogo aggiunto con successo!');
+    window.location.href = 'index.html'; // Redirect to homepage
+}

@@ -36,6 +36,9 @@ if (!localStorage.getItem('places')) {
     localStorage.setItem('places', JSON.stringify(samplePlaces));
 }
 
+let events = [];
+localStorage.setItem("events", JSON.stringify(events));
+
 // Funzione per la creazione di una card dinamica
 function createCard(place) {
     const card = document.createElement('div');
@@ -103,7 +106,7 @@ function locationOn() {
     const button = document.getElementById("location-active");
     button.addEventListener('click', function () {
         localStorage.setItem("placeToShow", 3); // mostriamo solamente il luogo con id 3;
-        window.location.href = "index.html"; //dopo ridirezioniamo alla homepage;
+        window.location.href = "dummyPosizione.html"; //ridirezioniamo alla pagina di caricamento;
     });
 }
 
