@@ -290,8 +290,21 @@ header a {
     text-shadow: 1px 1px 1px black;
     transition: 0.3s;
 }
+.rating-vertical {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    width: 20px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-size: 30px;
+    text-shadow: 1px 1px 1px black;
+    transition: 0.3s;
+}
 
-.rating:hover{
+#review-form>.rating:hover{
     font-size: 35px;
     transition: 0.3s;
 }

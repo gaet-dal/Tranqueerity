@@ -29,7 +29,7 @@ function addRecensione() {
 
     const rating = document.querySelectorAll('#starRating.star');
 
-    let selected = 0;
+    let selected = localStorage.getItem("reviewStars");
     rating.forEach((star, idx) => {
         star.addEventListener('click', () => {
             selected = star.value;
@@ -41,9 +41,15 @@ function addRecensione() {
 
     let starValue = document.createElement("div");
     starValue.classList.add("rating")
-    for(let i = 0; i < selected; i++){
+    console.log("selected: ", selected)
+    for(let i = 0; i < 5; i++){
         let star = document.createElement("span");
         star.classList.add("star");
+        star.textContent="★";
+        star.value = i+1;
+        if (i <= selected) {
+            star.classList.add("filled");
+        }
         starValue.appendChild(star);
     }
 
