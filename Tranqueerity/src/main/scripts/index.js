@@ -36,8 +36,11 @@ if (!localStorage.getItem('places')) {
     localStorage.setItem('places', JSON.stringify(samplePlaces));
 }
 
-let events = [];
-localStorage.setItem("events", JSON.stringify(events));
+if((localStorage.getItem("events")) === null){
+    let events = [];
+    localStorage.setItem("events", JSON.stringify(events));
+}
+
 
 // Funzione per la creazione di una card dinamica
 function createCard(place) {
@@ -47,6 +50,8 @@ function createCard(place) {
         localStorage.setItem('place', place.id);
         window.location.href = "visualizzaRecensioni.html";
     });
+
+
     
     const img = document.createElement('img');
     img.src = place.image;

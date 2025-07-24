@@ -1,9 +1,10 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     const btnConferma = document.querySelector("button.circle-icon");
-    const nome = document.getElementById("nomeEvento");
-    const orario = document.getElementById("orarioEvento");
-    const descrizione = document.getElementById("descrizioneEvento");
+    const nome = document.getElementById("nomeEvento"); //nome dell'evento
+    const orario = document.getElementById("orarioEvento"); //orario dell'evento
+    const descrizione = document.getElementById("descrizioneEvento"); //descrizione
+    const luogo = document.getElementById("luogoEvento"); //luogo per l'evento;
     const conferma = document.getElementById("conferma");
     const errore = document.getElementById("errore");
     const form = document.getElementById("event-form");
@@ -16,7 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if (
             nome.value.trim() &&
             orario.value.trim() &&
-            descrizione.value.trim()
+            descrizione.value.trim() &&
+            luogo.value.trim()
         ) {
             if (!orarioPattern.test(orario.value.trim())) {
                 errore.textContent = "⚠ Inserisci un orario valido nel formato 24H (es. 13:45)";
@@ -28,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 name : nome.value.trim(),
                 date : orario.value.trim(),
                 description : descrizione.value.trim(),
+                luogo:luogo.value.trim()
             };
 
             events.push(newEvent);
