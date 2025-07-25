@@ -63,3 +63,21 @@ function addRecensione() {
     // Resetta la textarea dopo l'invio
     document.getElementById("comment").value = "";
 }
+
+function report() {
+    const recensioni = document.querySelectorAll('.review');
+    const segnalazioni = new Array(recensioni.length).fill(0);
+
+    recensioni.forEach((recensione, i) => {
+        const btn = recensione.querySelector('.report-button');
+
+        if (btn) {
+            btn.addEventListener('click', () => {
+                segnalazioni[i]++;
+                if (segnalazioni[i] > 2) {
+                    recensione.innerText = "Recensione sotto processo di revisione";
+                }
+            });
+        }
+    });
+}
